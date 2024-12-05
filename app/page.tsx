@@ -1,101 +1,46 @@
 import Image from "next/image";
+import Hero from "@/app/components/Hero"
+import Description from "./components/Description";
+
+import Link from 'next/link'
+import WaitlistForm from "./components/WaitlistForm";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="relative">
+      {/* Grid Background */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 top-0 opacity-20 -z-10
+        bg-[linear-gradient(to_right,#FFD1DC_1px,#B4A7D6_1px,transparent_1px),linear-gradient(to_bottom,#FFD1DC_1px,#B4A7D6_1px,transparent_1px)] 
+        bg-[size:32px_32px] 
+        [mask-image:radial-gradient(ellipse_60%_25%_at_50%_0%,#2E2E3A_40%,transparent_100%)]"></div>
+      
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+      <Hero />
+      <Description />
+
+      <section className="px-4 my-10 sm:px-24 sm:mt-36 flex gap-6">
+        <div className="flex-1">
+          <h2 className="text-3xl font-bold tracking-tight w-11/18">Why We&apos;re Building the Future of Therapy</h2>
+          <p className="text-xl leading-7 pt-2">
+            Mental health care is in crisis. Millions of people face barriers to therapy due to cost, access, and stigma.
+            We're here to change that by providing affordable, secure, and accessible AI-powered therapy for everyone.
+          </p>
+          <div className="mt-10">
+            <Link href="" className="px-6 py-4 border border-blue-500 rounded-full">Read Our Purpose</Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="flex flex-col flex-1 leading-8 pl-16 border-l">
+          <p>1 in 5 U.S. adults experience mental illness each year</p>
+          <p>1 in 20 U.S. adults experience serious mental illness each year</p>
+          <p>1 in 6 U.S. youth aged 6-17 experience a mental health disorder each year</p>
+          <p>50% of all lifetime mental illness begins by age 14, and 75% by age 24</p>
+          <p>Suicide is the 2nd leading cause of death among people aged 10-14</p>
+        </div>
+      </section>
+
+      <WaitlistForm />
     </div>
   );
 }
